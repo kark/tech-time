@@ -117,7 +117,7 @@ module.exports = {
 
 ### More links
 
-[SSO](https://auth0.com/docs/authenticate/single-sign-on)
-[OIDC](https://auth0.com/docs/authenticate/protocols/openid-connect-protocol)
-[OAuth 2.0](https://auth0.com/docs/authenticate/protocols/oauth)
-[MC docs](https://docs.commercetools.com/merchant-center/single-sign-on-beta)
+- [SSO](https://auth0.com/docs/authenticate/single-sign-on)
+- [OIDC](https://auth0.com/docs/authenticate/protocols/openid-connect-protocol)
+- [OAuth 2.0](https://auth0.com/docs/authenticate/protocols/oauth)
+- [MC docs](https://docs.commercetools.com/merchant-center/single-sign-on-beta)

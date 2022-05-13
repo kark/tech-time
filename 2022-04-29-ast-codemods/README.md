@@ -10,47 +10,47 @@ Other ideas for codemods: imports sorting
 
 ## Outcomes
 
-**Codeomod**
+**Codemod**
 
 ```js
-function defaultToNamedExports (fileInfo, api) {
+function defaultToNamedExports(fileInfo, api) {
   const j = api.jscodeshift;
   const root = j(fileInfo.source);
-  
-  
+
   const defaultExportArr = root.find(j.ExportDefaultDeclaration);
-  
-  if(defaultExportArr.length > 0){
+
+  if (defaultExportArr.length > 0) {
     const defaultExportName = defaultExportArr.get(0).node.declaration.name;
     // delete the default export statement
     defaultExportArr.remove();
 
     // wrap variable declaration with named export statement
     root
-    .find(j.VariableDeclaration, {
-      declarations: [
-        {
-          id: {
-            type: "Identifier",
-            name: defaultExportName
-          }
-        }
-      ]
-    })
-    .replaceWith(p => j.exportDeclaration(false, p.node))
+      .find(j.VariableDeclaration, {
+        declarations: [
+          {
+            id: {
+              type: "Identifier",
+              name: defaultExportName,
+            },
+          },
+        ],
+      })
+      .replaceWith((p) => j.exportDeclaration(false, p.node));
   }
-  
-  
+
   return root.toSource();
 }
 ```
 
-**Helpful tools**
+**Helpful tools and links**
+
 - [AST explorer](https://astexplorer.net/)
 - [AST types](https://github.com/benjamn/ast-types)
 - [Next.js codemods](https://nextjs.org/docs/advanced-features/codemods)
 
 Libraries/gists:
+
 - [`jscodeshift` docs](https://github.com/facebook/jscodeshift)
 - [react codemods](https://github.com/reactjs/react-codemod)
 - [js codemod](https://github.com/cpojer/js-codemod/)
@@ -58,5 +58,10 @@ Libraries/gists:
 - [absolute-to-relative](https://gist.github.com/tibdex/f491a2d264ba14af5643de300957b4f9)
 
 Articles:
+
 - [Toptal article](https://www.toptal.com/javascript/write-code-to-rewrite-your-code)
 - [Codemods for React TS](https://www.carlrippon.com/codemods-for-react-typescript/)
+
+Other PRs:
+
+- [remove-deprecated-modal-level-props](https://github.com/commercetools/merchant-center-application-kit/pull/2597)

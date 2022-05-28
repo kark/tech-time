@@ -1,0 +1,2 @@
+name: k8s-react-test-helm-chart
+imagename: krzykaczu/k8s-react-test

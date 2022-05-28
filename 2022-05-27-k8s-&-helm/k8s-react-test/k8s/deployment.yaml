@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: k8s-react-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-react-test
+  template:
+    metadata:
+      labels:
+        app: k8s-react-test
+    spec:
+      containers:
+        - name: k8s-react-test
+          image: krzykaczu/k8s-react-test
+          ports:
+            - containerPort: 80

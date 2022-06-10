@@ -34,8 +34,10 @@ helm:
 ```bash
 cd helm
 helm create k8s-react-test-helm-chart
+helm install k8s-react-test-helm-chart .
 helm template k8s-react-test-helm-chart . # to verify
 minikube tunnel ## tunnels load balancer
+kubectl get service/load-balancer
 # the application is accessible under http://EXTERNAL-IP:80 from 👆
 kubectl delete k8s-react-test-helm-chart
 ```

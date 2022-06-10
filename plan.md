@@ -1,1 +1,3 @@
 - healthz, aws + healthcheck.json
+- setup prometheus monitoring on k8s using helm and prometheus operator
+- https://www.yatis.io/how-to-setup-ci-cd-for-react-using-jenkins-and-docker-on-aws-s3/
